@@ -57,6 +57,8 @@ nav .links a:hover{color:var(--ink);text-decoration:none}
 .status .city b{color:var(--ink);font-weight:600}
 .status .arrow{color:var(--ledger)}
 .status .note{color:var(--ledger);font-weight:500}
+.status .city{white-space:nowrap}
+.sm{display:none}
 /* ---------- hero ---------- */
 .hero{padding:76px 0 44px;display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
 .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ledger);margin-bottom:18px}
@@ -83,6 +85,7 @@ h1 i{font-style:italic;font-weight:500}
 @media(prefers-reduced-motion:reduce){.caret{animation:none}}
 /* ---------- governed metrics ---------- */
 .metrics{padding:30px 0 6px}
+.msub{font-family:var(--mono);font-size:.78rem;color:var(--graphite);margin-bottom:12px}
 .metricgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .metric{background:var(--card);border:1px solid var(--hair);border-radius:10px;padding:18px 18px 14px}
 .metric .name{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite);margin-bottom:8px}
@@ -135,19 +138,24 @@ footer{border-top:1px solid var(--hair);margin-top:64px;padding:30px 0 40px;back
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--graphite);font-size:.85rem;font-family:var(--mono)}
 /* ---------- responsive ---------- */
 @media(max-width:880px){
-  .hero{grid-template-columns:1fr;gap:34px;padding-top:52px}
+  .hero{grid-template-columns:1fr;gap:30px;padding-top:40px}
+  .eyebrow{font-size:.7rem;letter-spacing:.1em}
   .metricgrid{grid-template-columns:repeat(2,1fr)}
   .skillgrid{grid-template-columns:1fr}
 }
 @media(max-width:560px){
   body{font-size:16px}
+  .lg{display:none}
+  .sm{display:inline}
+  .status .wrap{gap:8px}
   nav .wrap{height:auto;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
   nav .links{gap:2px 14px}
   nav .links a{font-size:.85rem}
   .wrap{padding:0 18px}
   nav .links a{margin-left:14px;font-size:.85rem}
   .status .wrap{padding:7px 18px;font-size:.66rem}
-  .cta a{flex:1 1 100%;text-align:center}
+  .cta .primary{flex:1 1 100%;text-align:center}
+  .cta .ghost{flex:1 1 40%;text-align:center}
   .metricgrid{grid-template-columns:1fr 1fr;gap:10px}
   .metric b{font-size:1.4rem}
   .fig-h{display:none}
@@ -169,27 +177,24 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
 
 <div class="status" aria-label="Location status">
   <div class="wrap">
-    <span class="city"><b>SAN DIEGO</b> <span id="sd-time">--:--</span><span id="sd-wx"></span></span>
+    <span class="city"><b><span class="lg">SAN DIEGO</span><span class="sm">SD</span></b> <span id="sd-time">--:--</span><span id="sd-wx"></span></span>
     <span class="arrow">→</span>
-    <span class="city"><b>MIAMI</b> <span id="mia-time">--:--</span><span id="mia-wx"></span></span>
-    <span class="note">· relocating</span>
+    <span class="city"><b><span class="lg">MIAMI</span><span class="sm">MIA</span></b> <span id="mia-time">--:--</span><span id="mia-wx"></span> <span class="note">· relocating</span></span>
   </div>
 </div>
 
 <main>
 <header class="hero wrap">
   <div>
-    <div class="eyebrow">Senior Business Intelligence Analyst · Applied AI</div>
+    <div class="eyebrow">Senior BI Analyst · Applied AI</div>
     <h1>Analytics that keeps working <i>after I walk away.</i></h1>
     <p class="lede">Production GenAI and the dimensional models underneath it, built at
-    7,000-location restaurant scale and in regulated consumer finance. Every number on this
-    page carries its receipt.</p>
+    7,000-location restaurant scale and in regulated consumer finance.</p>
     <div class="cta">
       <a class="primary" href="#work">See the work</a>
       <a class="ghost" href="https://www.linkedin.com/in/peterskotte1" target="_blank" rel="noopener">LinkedIn</a>
       <a class="ghost" href="mailto:peterskotte@protonmail.com">Email</a>
     </div>
-    <p class="creds"><b>DP-600</b> certified · 7 yrs · SQL / Python / Snowflake / dbt · regulated finance</p>
   </div>
   <div class="evidence" aria-label="Live verification ledger">
     <div class="label"><span>verification ledger</span><span class="live">● live</span></div>
@@ -200,6 +205,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
 </header>
 
 <div class="metrics wrap">
+  <p class="msub">Every number below carries its receipt.</p>
   <div class="metricgrid">
     <div class="metric"><div class="name">reporting_scope</div><b>7,000+<sup>1</sup></b><span>locations served by the analytics portfolio I own</span></div>
     <div class="metric"><div class="name">fees_avoided</div><b>$400K/yr<sup>2</sup></b><span>eliminated by one ML model, impact tracked post-launch</span></div>
