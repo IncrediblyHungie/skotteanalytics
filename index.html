@@ -177,9 +177,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
 
 <div class="status" aria-label="Location status">
   <div class="wrap">
-    <span class="city"><b><span class="lg">SAN DIEGO</span><span class="sm">SD</span></b> <span id="sd-time">--:--</span><span id="sd-wx"></span></span>
+    <span class="city"><b><span class="lg">SAN DIEGO</span><span class="sm">SD</span></b> <span id="sd-time">--:--</span></span>
     <span class="arrow">→</span>
-    <span class="city"><b><span class="lg">MIAMI</span><span class="sm">MIA</span></b> <span id="mia-time">--:--</span><span id="mia-wx"></span> <span class="note">· relocating</span></span>
+    <span class="city"><b>MIAMI</b> <span id="mia-time">--:--</span><span id="mia-wx"></span></span>
   </div>
 </div>
 
@@ -419,7 +419,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
         document.getElementById(el).textContent=' · '+Math.round(c.temperature)+'°F '+(icons[c.weathercode]||'');})
       .catch(function(){});
   }
-  wx(32.72,-117.16,'sd-wx'); wx(25.76,-80.19,'mia-wx');
+  wx(25.76,-80.19,'mia-wx');
 })();
 </script>
 </body>
