@@ -119,7 +119,7 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.65rem;letter-spacing:-.0
 .figure{background:var(--paper);border:1px solid var(--hair);border-radius:8px;padding:16px;margin:6px 0 16px;overflow-x:auto}
 .figure svg{display:block;width:100%;height:auto}
 .fig-h{min-width:660px}
-.fig-v{display:none}
+svg.fig-v{display:none}
 .figcap{font-family:var(--mono);font-size:.7rem;color:var(--graphite);margin-top:8px}
 /* ---------- stack ---------- */
 .skillgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -159,8 +159,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
   .cta .ghost{flex:1 1 40%;text-align:center}
   .metricgrid{grid-template-columns:1fr 1fr;gap:10px}
   .metric b{font-size:1.4rem}
-  .fig-h{display:none}
-  .fig-v{display:block;min-width:0}
+  svg.fig-h{display:none}
+  svg.fig-v{display:block;min-width:0}
   .about{grid-template-columns:1fr}
   .about img{max-width:250px}
   .receipts{gap:4px 16px}
@@ -198,7 +198,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
     </div>
   </div>
   <div class="evidence" aria-label="Live verification ledger">
-    <div class="label"><span>verification ledger</span><span class="live">● live</span></div>
+    <div class="label"><span>verification ledger</span></div>
     <div class="ledgerline" id="ledger"><span class="k">{"claim":</span> "ships production AI"<span class="k">,
  "verdict":</span> <span class="v">"verified"</span><span class="k">,
  "receipts":</span> 3<span class="k">}</span><span class="caret" aria-hidden="true"></span></div>
@@ -254,7 +254,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
     <p>For a 7,000-location restaurant enterprise, I shipped a production GenAI product
     (LLM sentiment analysis + ML classification over customer feedback) and deployed a
     self-serve natural-language data agent: operators ask questions in plain English and
-    get answers grounded in a governed semantic model: business concepts translated into data structures an LLM can reason over reliably.</p>
+    get answers grounded in a governed semantic model: business concepts translated into structures an LLM can reason over.</p>
     <div class="figure">
       <svg class="fig-h" viewBox="0 0 880 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pipeline: raw sources, then dimensional models in Snowflake and dbt, then a governed semantic layer, then the LLM agent, then the operator asking questions in plain English">
         <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#1E6B4E" stroke-width="1.5"/></marker></defs>
@@ -308,10 +308,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
     <h3>LLM-as-judge orchestration pipeline</h3>
     <p>Personal data infrastructure: a pipeline that scrapes 30 heterogeneous sources
     (Workday, Phenom, Oracle Cloud, Greenhouse, custom APIs), scores every record with an
-    LLM against a versioned rubric behind a validated, typed verdict contract, and proactively
-    routes qualified results to alerts: signal separated from noise before a human ever looks. Idempotent state, atomic writes, retry caps with loud
-    give-ups, prompt-injection fencing, and an append-only judgment ledger stamped with
-    the rubric version that produced each verdict.</p>
+    LLM against a versioned rubric behind a validated, typed verdict contract. Qualified
+    results route straight to alerts: signal separated from noise before a human ever looks. Under the hood: idempotent state,
+    atomic writes, retry caps with loud give-ups, prompt-injection fencing, and an append-only judgment ledger stamped with
+    the rubric version that produced each verdict: the feedback loop that lets the rubric
+    improve against real outcomes.</p>
     <div class="figure" style="overflow-x:visible">
       <svg viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart: sequential scrape takes 269.9 seconds, parallel scrape takes 42.8 seconds, a 6.3 times speedup">
         <g font-family="IBM Plex Mono,monospace" font-size="13">
@@ -357,7 +358,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
       Analytics Engineer, DP-600.</p></div>
     <div class="skill"><h3>analytics that decides</h3>
       <p>Operational and workforce KPIs against formal OKRs, demand forecasting on 5M+ row datasets,
-      anomaly detection with root-cause routing, ML with tracked dollar impact, executive
+      anomaly detection with
+      root-cause routing, marketplace and e-commerce analytics, ML with tracked dollar impact, executive
       storytelling in Tableau and Power BI.</p></div>
   </div>
 </section>
@@ -378,8 +380,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
       an analysis only matters if it changes a decision, and a system only matters if it survives
       contact with real users.</p>
       <p>So I build for survival: metrics with governed definitions, pipelines that heal themselves,
-      and AI that surfaces what matters before anyone asks. I count impact in decisions changed,
-      not dashboards shipped. On nights and weekends I ship commercial
+      and AI that answers from models rather than memory. On nights and weekends I ship commercial
       automation agents, which keeps me honest. Paying customers are the strictest code review
       there is.</p>
     </div>
