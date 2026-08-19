@@ -4,237 +4,417 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Peter Skotte — Analytics & Applied AI</title>
-<meta name="description" content="Peter Skotte — Senior Business Intelligence Analyst. Production GenAI, agentic analytics pipelines, and the data models underneath them.">
+<meta name="description" content="Peter Skotte, Senior Business Intelligence Analyst. Production GenAI, agentic data pipelines, and the dimensional models underneath them. Every claim on this page carries its receipt.">
+<link rel="canonical" href="https://skotteanalytics.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Peter Skotte — Analytics & Applied AI">
+<meta property="og:description" content="Production GenAI, agentic pipelines, governed metrics. Every claim carries its receipt.">
+<meta property="og:url" content="https://skotteanalytics.com/">
+<meta property="og:image" content="https://skotteanalytics.com/assets/og.jpg">
+<meta name="twitter:image" content="https://skotteanalytics.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Peter Skotte — Analytics & Applied AI">
+<meta name="twitter:description" content="Production GenAI, agentic pipelines, governed metrics. Every claim carries its receipt.">
+<meta name="theme-color" content="#F6F8F6">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="%231E6B4E"/><text x="16" y="22" font-family="monospace" font-size="15" font-weight="bold" fill="%23F6F8F6" text-anchor="middle">S%2FA</text></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0b0f14; --panel:#111823; --panel2:#0e141d; --line:#1d2a3a;
-  --text:#e8eef6; --muted:#8fa3b8; --accent:#4cc38a; --accent2:#5aa9ff;
-  --mono:'JetBrains Mono',monospace;
+  --paper:#F6F8F6; --card:#FDFEFD; --ink:#16211B; --graphite:#4E5F57;
+  --ledger:#1E6B4E; --coral:#C44F27; --hair:#D9E1DB; --grid:rgba(30,107,78,.045);
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --serif:'Newsreader',Georgia,serif;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6}
-a{color:var(--accent2);text-decoration:none}
+html{scroll-padding-top:76px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+html,body{overflow-x:clip}
+body{
+  background:var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 28px);
+  color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:16.5px;
+}
+a{color:var(--ledger);text-decoration:none}
 a:hover{text-decoration:underline}
-.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
-/* nav */
-nav{position:sticky;top:0;background:rgba(11,15,20,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:10}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.brand{font-weight:800;letter-spacing:-.02em}
-.brand span{color:var(--accent)}
-nav .links a{color:var(--muted);margin-left:22px;font-size:.92rem;font-weight:500}
-nav .links a:hover{color:var(--text);text-decoration:none}
-/* hero */
-.hero{padding:84px 0 60px;display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center}
-.kicker{font-family:var(--mono);color:var(--accent);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
-h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.12;letter-spacing:-.03em;font-weight:800;margin-bottom:18px}
-h1 em{font-style:normal;color:var(--accent)}
-.lede{color:var(--muted);font-size:1.12rem;max-width:34em;margin-bottom:26px}
-.cta a{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:600;font-size:.95rem;margin-right:12px;margin-bottom:8px}
-.cta .primary{background:var(--accent);color:#04110a}
-.cta .primary:hover{filter:brightness(1.1);text-decoration:none}
-.cta .ghost{border:1px solid var(--line);color:var(--text)}
-.cta .ghost:hover{border-color:var(--accent2);text-decoration:none}
-.portrait{justify-self:end}
-.portrait img{width:100%;max-width:330px;border-radius:16px;border:1px solid var(--line);display:block}
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:26px 0 8px;border-top:1px solid var(--line)}
-.stat{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:18px}
-.stat b{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
-.stat span{color:var(--muted);font-size:.85rem}
-/* sections */
-section{padding:64px 0 8px}
-h2{font-size:1.6rem;letter-spacing:-.02em;font-weight:800;margin-bottom:6px}
-.sub{color:var(--muted);margin-bottom:30px;max-width:44em}
-/* project cards */
-.project{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px;margin-bottom:24px}
-.project .tag{font-family:var(--mono);font-size:.75rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
-.project h3{font-size:1.25rem;margin:8px 0 10px;letter-spacing:-.01em}
-.project p{color:var(--muted);max-width:56em;margin-bottom:12px}
-.project ul{color:var(--muted);margin:0 0 14px 20px}
+:focus-visible{outline:2px solid var(--ledger);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+/* ---------- nav + status strip ---------- */
+nav{border-bottom:1px solid var(--hair);background:rgba(246,248,246,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{font-family:var(--mono);font-weight:600;font-size:.92rem;letter-spacing:.02em;color:var(--ink)}
+.brand b{color:var(--ledger)}
+nav .links{display:flex;flex-wrap:wrap;gap:4px 18px}
+nav .links a{color:var(--graphite);font-size:.9rem;font-weight:500;padding:6px 0}
+nav .links a:hover{color:var(--ink);text-decoration:none}
+.status{border-bottom:1px solid var(--hair);background:var(--card)}
+.status .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 24px;font-family:var(--mono);font-size:.72rem;color:var(--graphite);letter-spacing:.02em}
+.status .city b{color:var(--ink);font-weight:600}
+.status .arrow{color:var(--ledger)}
+.status .note{color:var(--ledger);font-weight:500}
+/* ---------- hero ---------- */
+.hero{padding:76px 0 44px;display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ledger);margin-bottom:18px}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,4.6vw,3.3rem);line-height:1.12;letter-spacing:-.015em;margin-bottom:20px}
+h1 i{font-style:italic;font-weight:500}
+.lede{color:var(--graphite);font-size:1.08rem;max-width:32em;margin-bottom:26px}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.cta a{display:inline-block;padding:11px 20px;border-radius:6px;font-weight:600;font-size:.93rem}
+.cta .primary{background:var(--ledger);color:#F6F8F6}
+.cta .primary:hover{background:#175A41;text-decoration:none}
+.cta .ghost{border:1px solid var(--hair);background:var(--card);color:var(--ink)}
+.cta .ghost:hover{border-color:var(--ledger);text-decoration:none}
+.creds{margin-top:26px;font-family:var(--mono);font-size:.74rem;color:var(--graphite)}
+.creds b{color:var(--ink);font-weight:600}
+/* hero evidence panel */
+.evidence{background:var(--card);border:1px solid var(--hair);border-radius:10px;padding:20px 20px 16px;box-shadow:0 1px 0 var(--hair)}
+.evidence .label{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite);margin-bottom:10px;display:flex;justify-content:space-between}
+.evidence .label .live{color:var(--ledger)}
+.ledgerline{font-family:var(--mono);font-size:.78rem;color:var(--ink);background:var(--paper);border:1px solid var(--hair);border-radius:6px;padding:10px 12px;white-space:pre-wrap;word-break:break-word;min-height:3.4em}
+.ledgerline .k{color:var(--graphite)}
+.ledgerline .v{color:var(--ledger);font-weight:600}
+.caret{display:inline-block;width:.55em;border-bottom:2px solid var(--ledger);animation:blink 1s steps(1) infinite;vertical-align:baseline}
+@keyframes blink{50%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.caret{animation:none}}
+/* ---------- governed metrics ---------- */
+.metrics{padding:30px 0 6px}
+.metricgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.metric{background:var(--card);border:1px solid var(--hair);border-radius:10px;padding:18px 18px 14px}
+.metric .name{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite);margin-bottom:8px}
+.metric b{display:block;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.7rem;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.metric b sup{font-size:.55em;color:var(--ledger)}
+.metric span{color:var(--graphite);font-size:.84rem;line-height:1.45;display:block;margin-top:4px}
+details.method{margin-top:14px;border:1px solid var(--hair);border-radius:8px;background:var(--card)}
+details.method summary{cursor:pointer;font-family:var(--mono);font-size:.76rem;color:var(--ledger);padding:10px 14px;list-style:none}
+details.method summary::before{content:"▸ ";}
+details[open].method summary::before{content:"▾ ";}
+details.method ol{padding:2px 18px 12px 34px;color:var(--graphite);font-size:.82rem}
+details.method li{margin-bottom:5px}
+/* ---------- sections ---------- */
+section{padding:58px 0 4px}
+h2{font-family:var(--serif);font-weight:600;font-size:1.65rem;letter-spacing:-.01em;margin-bottom:4px}
+.sub{color:var(--graphite);margin-bottom:26px;max-width:42em}
+/* ---------- project cards ---------- */
+.project{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:28px 28px 0;margin-bottom:22px;overflow:hidden}
+.project .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
+.project h3{font-size:1.22rem;font-weight:600;margin:8px 0 10px;letter-spacing:-.01em}
+.project p{color:var(--graphite);max-width:58em;margin-bottom:12px}
+.project p b{color:var(--ink)}
+.project ul{color:var(--graphite);margin:0 0 14px 20px}
 .project li{margin-bottom:6px}
-.project .links a{font-weight:600;font-size:.92rem;margin-right:18px}
-.pill{display:inline-block;font-family:var(--mono);font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 10px;margin:2px 6px 2px 0}
-/* diagram */
-.diagram{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0;overflow-x:auto}
-.diagram svg{display:block;min-width:640px;width:100%;height:auto}
-/* skills */
+.project li b{color:var(--ink)}
+.receipts{display:flex;flex-wrap:wrap;gap:4px 22px;align-items:center;border-top:1px solid var(--hair);margin:18px -28px 0;padding:12px 28px 14px;background:var(--paper);font-family:var(--mono);font-size:.76rem}
+.receipts .rlabel{color:var(--graphite);letter-spacing:.08em;text-transform:uppercase;font-size:.66rem}
+.receipts a{font-weight:500}
+/* diagram + chart */
+.figure{background:var(--paper);border:1px solid var(--hair);border-radius:8px;padding:16px;margin:6px 0 16px;overflow-x:auto}
+.figure svg{display:block;width:100%;height:auto}
+.fig-h{min-width:660px}
+.fig-v{display:none}
+.figcap{font-family:var(--mono);font-size:.7rem;color:var(--graphite);margin-top:8px}
+/* ---------- stack ---------- */
 .skillgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.skill{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:18px}
-.skill h4{font-size:.95rem;margin-bottom:8px;color:var(--accent2)}
-.skill p{color:var(--muted);font-size:.9rem}
-/* about */
-.about{display:grid;grid-template-columns:1fr 1.4fr;gap:36px;align-items:center}
-.about img{width:100%;border-radius:14px;border:1px solid var(--line)}
-.about p{color:var(--muted);margin-bottom:12px}
-/* footer */
-footer{border-top:1px solid var(--line);margin-top:70px;padding:34px 0 44px}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:.9rem}
-footer a{margin-right:18px}
-@media(max-width:820px){
-  .hero{grid-template-columns:1fr;padding-top:48px}
-  .portrait{justify-self:start;order:-1}
-  .portrait img{max-width:220px}
-  .stats{grid-template-columns:repeat(2,1fr)}
+.skill{background:var(--card);border:1px solid var(--hair);border-radius:10px;padding:18px}
+.skill h3{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;color:var(--ledger)}
+.skill p{color:var(--graphite);font-size:.9rem}
+/* ---------- divider photo ---------- */
+.daylight{margin:64px 0 0;position:relative}
+.daylight img{display:block;width:100%;max-height:340px;object-fit:cover}
+.daylight figcaption{position:absolute;bottom:0;left:0;right:0;padding:14px 24px;background:linear-gradient(transparent,rgba(22,33,27,.78));color:#F6F8F6;font-family:var(--mono);font-size:.76rem}
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:250px 1fr;gap:38px;align-items:start;margin-top:22px}
+.about img{width:100%;border-radius:10px;border:1px solid var(--hair);filter:saturate(.9) contrast(1.03)}
+.about p{color:var(--graphite);margin-bottom:12px;max-width:58em}
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--hair);margin-top:64px;padding:30px 0 40px;background:var(--card)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--graphite);font-size:.85rem;font-family:var(--mono)}
+/* ---------- responsive ---------- */
+@media(max-width:880px){
+  .hero{grid-template-columns:1fr;gap:34px;padding-top:52px}
+  .metricgrid{grid-template-columns:repeat(2,1fr)}
   .skillgrid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  body{font-size:16px}
+  nav .wrap{height:auto;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+  nav .links{gap:2px 14px}
+  nav .links a{font-size:.85rem}
+  .wrap{padding:0 18px}
+  nav .links a{margin-left:14px;font-size:.85rem}
+  .status .wrap{padding:7px 18px;font-size:.66rem}
+  .cta a{flex:1 1 100%;text-align:center}
+  .metricgrid{grid-template-columns:1fr 1fr;gap:10px}
+  .metric b{font-size:1.4rem}
+  .fig-h{display:none}
+  .fig-v{display:block;min-width:0}
   .about{grid-template-columns:1fr}
+  .about img{max-width:250px}
+  .receipts{gap:4px 16px}
 }
 </style>
 </head>
 <body>
 
-<nav><div class="wrap">
-  <div class="brand">SKOTTE<span>·</span>ANALYTICS</div>
+<nav aria-label="Main"><div class="wrap">
+  <div class="brand">skotte<b>/</b>analytics</div>
   <div class="links">
-    <a href="#work">Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a>
+    <a href="#work">Work</a><a href="#stack">Stack</a><a href="#about">About</a><a href="#contact">Contact</a>
   </div>
 </div></nav>
 
+<div class="status" aria-label="Location status">
+  <div class="wrap">
+    <span class="city"><b>SAN DIEGO</b> <span id="sd-time">--:--</span><span id="sd-wx"></span></span>
+    <span class="arrow">→</span>
+    <span class="city"><b>MIAMI</b> <span id="mia-time">--:--</span><span id="mia-wx"></span></span>
+    <span class="note">· relocating</span>
+  </div>
+</div>
+
+<main>
 <header class="hero wrap">
   <div>
-    <div class="kicker">Senior Business Intelligence Analyst · Applied AI</div>
-    <h1>I build analytics systems that <em>ship</em> — and keep working after I walk away.</h1>
-    <p class="lede">Production GenAI, agentic data pipelines, and the dimensional models underneath them.
-    Currently powering analytics across 7,000+ restaurant locations; previously forecasting demand on
-    5M+ row datasets and cutting fees $400K/yr with ML in regulated consumer finance.</p>
+    <div class="eyebrow">Senior Business Intelligence Analyst · Applied AI</div>
+    <h1>Analytics that keeps working <i>after I walk away.</i></h1>
+    <p class="lede">Production GenAI and the dimensional models underneath it, built at
+    7,000-location restaurant scale and in regulated consumer finance. Every number on this
+    page carries its receipt.</p>
     <div class="cta">
       <a class="primary" href="#work">See the work</a>
       <a class="ghost" href="https://www.linkedin.com/in/peterskotte1" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="ghost" href="mailto:peterskotte@protonmail.com">Email me</a>
+      <a class="ghost" href="mailto:peterskotte@protonmail.com">Email</a>
     </div>
+    <p class="creds"><b>DP-600</b> certified · 7 yrs · SQL / Python / Snowflake / dbt · regulated finance</p>
   </div>
-  <div class="portrait"><img src="assets/peter.jpg" alt="Peter Skotte"></div>
+  <div class="evidence" aria-label="Live verification ledger">
+    <div class="label"><span>verification ledger</span><span class="live">● live</span></div>
+    <div class="ledgerline" id="ledger"><span class="k">{"claim":</span> "ships production AI"<span class="k">,
+ "verdict":</span> <span class="v">"verified"</span><span class="k">,
+ "receipts":</span> 3<span class="k">}</span><span class="caret" aria-hidden="true"></span></div>
+  </div>
 </header>
 
-<div class="wrap stats">
-  <div class="stat"><b>7,000+</b><span>locations served by my analytics portfolio</span></div>
-  <div class="stat"><b>$400K/yr</b><span>fees eliminated by one ML model I shipped</span></div>
-  <div class="stat"><b>40%</b><span>faster incident response via automated anomaly detection</span></div>
-  <div class="stat"><b>6+ months</b><span>of continuous revenue from AI agents I sell</span></div>
+<div class="metrics wrap">
+  <div class="metricgrid">
+    <div class="metric"><div class="name">reporting_scope</div><b>7,000+<sup>1</sup></b><span>locations served by the analytics portfolio I own</span></div>
+    <div class="metric"><div class="name">fees_avoided</div><b>$400K/yr<sup>2</sup></b><span>eliminated by one ML model, impact tracked post-launch</span></div>
+    <div class="metric"><div class="name">mttr_reduction</div><b>40%<sup>3</sup></b><span>faster response to data-integrity incidents</span></div>
+    <div class="metric"><div class="name">marketplace_rev</div><b>6+ mo<sup>4</sup></b><span>of continuous revenue from AI agents I sell</span></div>
+  </div>
+  <details class="method">
+    <summary>how these numbers are measured</summary>
+    <ol>
+      <li><b>1.</b> Franchise + corporate reporting scope of a 12-product analytics portfolio at a national restaurant enterprise, 2025–present.</li>
+      <li><b>2.</b> Insufficient-funds fees avoided by an at-risk-account ML model in FDCPA/CFPB-regulated consumer finance; dollar impact tracked for 12 months post-launch.</li>
+      <li><b>3.</b> Time-to-response on data-integrity alerts, before vs. after automated anomaly detection with owner routing; self-measured across the incident log.</li>
+      <li><b>4.</b> Paid automation agents on the Apify marketplace; revenue continuous since early 2026. Live listings linked below, judge for yourself.</li>
+    </ol>
+  </details>
 </div>
 
 <section id="work" class="wrap">
-  <h2>Selected Work</h2>
-  <p class="sub">Three systems, three proofs: commercial, production, and open. Everything below is real,
-  running, and mine end to end.</p>
+  <h2>Selected work</h2>
+  <p class="sub">Three systems, three kinds of proof: commercial, production, and open.</p>
 
   <div class="project">
     <div class="tag">Commercial · Live</div>
-    <h3>Paid AI Agents on the Apify Marketplace</h3>
-    <p>I design, build, and operate a fleet of automation agents and scrapers sold as paid products —
-    input UIs, API endpoints, pricing, and maintenance all owned by me. They've generated revenue
-    continuously for 6+ months from real paying users. Built in Python, extensively with Claude Code,
-    version-controlled in Git.</p>
-    <p><b style="color:var(--text)">Why it matters:</b> anyone can claim "I build AI agents."
-    A marketplace with paying customers is the receipt.</p>
-    <div class="links"><a href="https://apify.com/velvety_bedbug" target="_blank" rel="noopener">Browse the live listings →</a></div>
-    <div><span class="pill">Python</span><span class="pill">Anthropic API</span><span class="pill">Claude Code</span><span class="pill">Apify SDK</span><span class="pill">Git</span></div>
+    <h3>Paid AI agents on the Apify marketplace</h3>
+    <p>I design, build, and operate a fleet of automation agents sold as paid products:
+    input UIs, API endpoints, pricing, and maintenance all owned end to end. Real paying
+    users, real uptime obligations, revenue continuous for 6+ months. Python, built
+    extensively with Claude Code, version-controlled in Git.</p>
+    <p><b>A marketplace with paying customers is the receipt.</b> Anyone can claim they
+    build AI agents; customers who pay twice are harder to fake.</p>
+    <div class="receipts">
+      <span class="rlabel">receipts</span>
+      <a href="https://apify.com/velvety_bedbug" target="_blank" rel="noopener">storefront 1 ↗</a>
+      <a href="https://apify.com/fortuitous_pirate" target="_blank" rel="noopener">2 ↗</a>
+      <a href="https://apify.com/chimerical_quicklime" target="_blank" rel="noopener">3 ↗</a>
+      <a href="https://apify.com/flamboyant_liner" target="_blank" rel="noopener">4 ↗</a>
+      <a href="https://apify.com/outstanding_vegetable" target="_blank" rel="noopener">5 ↗</a>
+      <a href="https://apify.com/quarterly_jingo" target="_blank" rel="noopener">6 ↗</a>
+    </div>
   </div>
 
   <div class="project">
     <div class="tag">Production · Architecture</div>
-    <h3>Natural-Language Data Agent over a Semantic Layer</h3>
-    <p>For a 7,000-location restaurant enterprise, I shipped a production GenAI product (LLM sentiment
-    analysis + ML classification over customer-feedback data) and deployed a self-serve natural-language
-    data agent: business operators ask questions in plain English and get answers grounded in a governed
-    semantic model — not a hallucination, and not another static dashboard.</p>
-    <div class="diagram">
-      <svg viewBox="0 0 880 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture: sources to dimensional models to semantic layer to LLM to business user">
-        <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#4cc38a" stroke-width="1.4"/></marker></defs>
-        <g font-family="JetBrains Mono, monospace" font-size="12" fill="#e8eef6" text-anchor="middle">
-          <rect x="10"  y="55" width="140" height="80" rx="10" fill="#0e141d" stroke="#1d2a3a"/>
-          <text x="80" y="88">Raw sources</text><text x="80" y="106" fill="#8fa3b8" font-size="10">feedback · ops · POS</text>
-          <rect x="196" y="55" width="150" height="80" rx="10" fill="#0e141d" stroke="#1d2a3a"/>
-          <text x="271" y="82">Dimensional</text><text x="271" y="98">models</text><text x="271" y="114" fill="#8fa3b8" font-size="10">Snowflake · dbt · contracts</text>
-          <rect x="392" y="55" width="150" height="80" rx="10" fill="#0e141d" stroke="#4cc38a"/>
-          <text x="467" y="82">Semantic layer</text><text x="467" y="100" fill="#8fa3b8" font-size="10">governed metric defs</text><text x="467" y="114" fill="#8fa3b8" font-size="10">= the grounding</text>
-          <rect x="588" y="55" width="130" height="80" rx="10" fill="#0e141d" stroke="#1d2a3a"/>
-          <text x="653" y="88">LLM agent</text><text x="653" y="106" fill="#8fa3b8" font-size="10">answers over metrics</text>
-          <rect x="764" y="55" width="106" height="80" rx="10" fill="#0e141d" stroke="#1d2a3a"/>
-          <text x="817" y="82">Operator</text><text x="817" y="100" fill="#8fa3b8" font-size="10">plain-English</text><text x="817" y="114" fill="#8fa3b8" font-size="10">Q&amp;A</text>
-          <g stroke="#4cc38a" stroke-width="1.4" fill="none">
-            <line x1="150" y1="95" x2="192" y2="95" marker-end="url(#a)"/>
-            <line x1="346" y1="95" x2="388" y2="95" marker-end="url(#a)"/>
-            <line x1="542" y1="95" x2="584" y2="95" marker-end="url(#a)"/>
-            <line x1="718" y1="95" x2="760" y2="95" marker-end="url(#a)"/>
+    <h3>Natural-language data agent over a semantic layer</h3>
+    <p>For a 7,000-location restaurant enterprise, I shipped a production GenAI product
+    (LLM sentiment analysis + ML classification over customer feedback) and deployed a
+    self-serve natural-language data agent: operators ask questions in plain English and
+    get answers grounded in a governed semantic model.</p>
+    <div class="figure">
+      <svg class="fig-h" viewBox="0 0 880 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pipeline: raw sources, then dimensional models in Snowflake and dbt, then a governed semantic layer, then the LLM agent, then the operator asking questions in plain English">
+        <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#1E6B4E" stroke-width="1.5"/></marker></defs>
+        <g font-family="IBM Plex Mono,monospace" font-size="13" fill="#16211B" text-anchor="middle">
+          <rect x="8" y="34" width="150" height="82" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/>
+          <text x="83" y="68">raw sources</text><text x="83" y="88" fill="#4E5F57" font-size="11">feedback · ops · POS</text>
+          <rect x="196" y="34" width="160" height="82" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/>
+          <text x="276" y="62">dimensional</text><text x="276" y="80">models</text><text x="276" y="100" fill="#4E5F57" font-size="11">Snowflake · dbt</text>
+          <rect x="394" y="34" width="170" height="82" rx="8" fill="#FDFEFD" stroke="#1E6B4E" stroke-width="1.5"/>
+          <text x="479" y="62">semantic layer</text><text x="479" y="82" fill="#1E6B4E" font-size="11">governed metric defs</text><text x="479" y="100" fill="#4E5F57" font-size="11">= the grounding</text>
+          <rect x="602" y="34" width="130" height="82" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/>
+          <text x="667" y="68">LLM agent</text><text x="667" y="88" fill="#4E5F57" font-size="11">answers over metrics</text>
+          <rect x="770" y="34" width="102" height="82" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/>
+          <text x="821" y="62">operator</text><text x="821" y="82" fill="#4E5F57" font-size="11">plain-English</text><text x="821" y="100" fill="#4E5F57" font-size="11">Q&amp;A</text>
+          <g stroke="#1E6B4E" stroke-width="1.5" fill="none">
+            <line x1="158" y1="75" x2="192" y2="75" marker-end="url(#ah)"/>
+            <line x1="356" y1="75" x2="390" y2="75" marker-end="url(#ah)"/>
+            <line x1="564" y1="75" x2="598" y2="75" marker-end="url(#ah)"/>
+            <line x1="732" y1="75" x2="766" y2="75" marker-end="url(#ah)"/>
           </g>
         </g>
       </svg>
+      <svg class="fig-v" viewBox="0 0 320 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Same pipeline, vertical: raw sources to dimensional models to semantic layer to LLM agent to operator">
+        <defs><marker id="av" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#1E6B4E" stroke-width="1.5"/></marker></defs>
+        <g font-family="IBM Plex Mono,monospace" font-size="13" fill="#16211B" text-anchor="middle">
+          <rect x="60" y="6" width="200" height="58" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/><text x="160" y="32">raw sources</text><text x="160" y="50" fill="#4E5F57" font-size="11">feedback · ops · POS</text>
+          <rect x="60" y="98" width="200" height="58" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/><text x="160" y="124">dimensional models</text><text x="160" y="142" fill="#4E5F57" font-size="11">Snowflake · dbt</text>
+          <rect x="60" y="190" width="200" height="58" rx="8" fill="#FDFEFD" stroke="#1E6B4E" stroke-width="1.5"/><text x="160" y="216">semantic layer</text><text x="160" y="234" fill="#1E6B4E" font-size="11">the grounding</text>
+          <rect x="60" y="282" width="200" height="58" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/><text x="160" y="308">LLM agent</text><text x="160" y="326" fill="#4E5F57" font-size="11">answers over metrics</text>
+          <rect x="60" y="374" width="200" height="50" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/><text x="160" y="404">operator Q&amp;A</text>
+          <g stroke="#1E6B4E" stroke-width="1.5" fill="none">
+            <line x1="160" y1="64" x2="160" y2="94" marker-end="url(#av)"/>
+            <line x1="160" y1="156" x2="160" y2="186" marker-end="url(#av)"/>
+            <line x1="160" y1="248" x2="160" y2="278" marker-end="url(#av)"/>
+            <line x1="160" y1="340" x2="160" y2="370" marker-end="url(#av)"/>
+          </g>
+        </g>
+      </svg>
+      <div class="figcap">fig 1 · the agent never free-styles over raw tables: it reasons over the same governed
+      metric definitions the executive dashboards use, so an answer by prompt reconciles with the reported KPI.</div>
     </div>
-    <p>The design decision that makes it trustworthy: the LLM never free-styles over raw tables. It reasons
-    over a semantic layer whose metric definitions I document and govern — same numbers the executive
-    dashboards use, so an answer by prompt always reconciles with the reported KPI.</p>
-    <div><span class="pill">LLM + ML in production</span><span class="pill">Semantic layer</span><span class="pill">Snowflake · dbt</span><span class="pill">Prompt engineering</span><span class="pill">Data contracts</span></div>
+    <div class="receipts">
+      <span class="rlabel">receipts</span>
+      <span style="color:var(--graphite)">architecture, fig 1 above</span>
+      <a href="#stack">stack detail ↓</a>
+    </div>
   </div>
 
   <div class="project">
-    <div class="tag">Open · Case Study</div>
-    <h3>LLM-as-Judge Orchestration Pipeline</h3>
-    <p>A personal-infrastructure project: a multi-source data pipeline that scrapes 30 heterogeneous
-    sources (Workday, Phenom, Oracle Cloud, Greenhouse, custom APIs), then uses an LLM as a structured
-    judge — every record scored against a versioned rubric with a validated, typed verdict contract —
-    and routes qualified results to alerts.</p>
+    <div class="tag">Open · Case study</div>
+    <h3>LLM-as-judge orchestration pipeline</h3>
+    <p>Personal data infrastructure: a pipeline that scrapes 30 heterogeneous sources
+    (Workday, Phenom, Oracle Cloud, Greenhouse, custom APIs), scores every record with an
+    LLM against a versioned rubric behind a validated, typed verdict contract, and routes
+    qualified results to alerts. Idempotent state, atomic writes, retry caps with loud
+    give-ups, prompt-injection fencing, and an append-only judgment ledger stamped with
+    the rubric version that produced each verdict.</p>
+    <div class="figure" style="overflow-x:visible">
+      <svg viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart: sequential scrape takes 269.9 seconds, parallel scrape takes 42.8 seconds, a 6.3 times speedup">
+        <g font-family="IBM Plex Mono,monospace" font-size="13">
+          <text x="8" y="18" fill="#16211B" font-weight="600">scrape wall-time, 24 source lanes (same-day A/B, n=1,404 jobs)</text>
+          <text x="8" y="52" fill="#4E5F57">sequential</text>
+          <rect x="118" y="38" width="460" height="20" rx="3" fill="#C44F27" opacity=".85"/>
+          <text x="586" y="53" fill="#16211B" text-anchor="end" font-weight="600" style="font-variant-numeric:tabular-nums">269.9s</text>
+          <text x="8" y="88" fill="#4E5F57">parallel</text>
+          <rect x="118" y="74" width="73" height="20" rx="3" fill="#1E6B4E"/>
+          <text x="200" y="89" fill="#16211B" font-weight="600" style="font-variant-numeric:tabular-nums">42.8s · 6.3×</text>
+          <line x1="118" y1="104" x2="578" y2="104" stroke="#D9E1DB"/>
+          <text x="118" y="122" fill="#4E5F57" font-size="11">0s</text>
+          <text x="348" y="122" fill="#4E5F57" font-size="11" text-anchor="middle">135s</text>
+          <text x="578" y="122" fill="#4E5F57" font-size="11" text-anchor="end">270s</text>
+          <text x="8" y="152" fill="#4E5F57" font-size="11">identical coverage both passes (1,404 vs 1,406 ids; drift = live boards changing between runs)</text>
+        </g>
+      </svg>
+    </div>
     <ul>
-      <li><b style="color:var(--text)">Parallel orchestration:</b> 24 independent lanes on a thread pool, rate-limit-aware per host — benchmarked <b style="color:var(--text)">6.3× faster</b> than sequential (270s → 43s, identical coverage, same-day A/B on live sources)</li>
-      <li><b style="color:var(--text)">Reliability engineering:</b> idempotent state, atomic writes, per-record retry caps with loud give-ups, lockfile with heartbeat, crash-safe resume — a record can be delayed, never silently lost</li>
-      <li><b style="color:var(--text)">LLM rigor:</b> fenced untrusted input (prompt-injection tested), envelope validation, verdict normalization, double-sampling on positive verdicts, every judgment logged to an append-only ledger with the rubric version that produced it</li>
-      <li><b style="color:var(--text)">Airflow-ready:</b> the same topology expressed as an Airflow DAG with dynamic task mapping and pooled concurrency</li>
+      <li><b>Parallel orchestration:</b> 24 independent lanes on a thread pool, rate-limit-aware per host; the same topology also expressed as an Airflow DAG with dynamic task mapping and pooled concurrency</li>
+      <li><b>LLM rigor:</b> fenced untrusted input (injection-tested), envelope validation, verdict normalization, double-sampling on positive verdicts</li>
+      <li><b>Reliability:</b> a record can be delayed, never silently lost</li>
     </ul>
-    <div><span class="pill">Python</span><span class="pill">LLM-as-judge</span><span class="pill">ThreadPool / Airflow</span><span class="pill">Idempotency</span><span class="pill">Observability</span></div>
+    <div class="receipts">
+      <span class="rlabel">receipts</span>
+      <a href="https://github.com/IncrediblyHungie" target="_blank" rel="noopener">github ↗</a>
+      <span style="color:var(--graphite)">benchmark, chart above</span>
+    </div>
   </div>
 </section>
 
-<section id="skills" class="wrap">
-  <h2>How I Work</h2>
-  <p class="sub">The stack under the projects.</p>
+<section id="stack" class="wrap">
+  <h2>The stack</h2>
+  <p class="sub">What the projects run on.</p>
   <div class="skillgrid">
-    <div class="skill"><h4>Data Modeling & SQL</h4>
-      <p>Dimensional models in Snowflake + dbt with defined grain and data contracts; window-function and
-      CTE-heavy transformations; semantic/metrics layers (Lightdash, Microsoft Fabric); source-of-truth
-      documentation teams actually align on.</p></div>
-    <div class="skill"><h4>Applied AI</h4>
-      <p>Production GenAI (LLM + ML), custom agents on the Anthropic API, prompt engineering, natural-language
-      data interfaces, AI-orchestrated automation. Certified: Microsoft Fabric Analytics Engineer (DP-600).</p></div>
-    <div class="skill"><h4>Analytics that Decide</h4>
-      <p>Operational & workforce KPIs vs formal OKRs, demand forecasting (5M+ rows), anomaly detection with
-      root-cause routing, ML with tracked dollar impact, executive storytelling in Tableau / Power BI.</p></div>
+    <div class="skill"><h3>data modeling & sql</h3>
+      <p>Dimensional models in Snowflake + dbt with defined grain and data contracts; window-function
+      and CTE-heavy transformations; semantic and metrics layers (Lightdash, Microsoft Fabric);
+      source-of-truth documentation teams actually align on.</p></div>
+    <div class="skill"><h3>applied ai</h3>
+      <p>Production GenAI (LLM + ML), custom agents on the Anthropic API, prompt engineering,
+      natural-language data interfaces, AI-orchestrated automation. Certified: Microsoft Fabric
+      Analytics Engineer, DP-600.</p></div>
+    <div class="skill"><h3>analytics that decides</h3>
+      <p>Operational and workforce KPIs against formal OKRs, demand forecasting on 5M+ row datasets,
+      anomaly detection with root-cause routing, ML with tracked dollar impact, executive
+      storytelling in Tableau and Power BI.</p></div>
   </div>
 </section>
+
+<figure class="daylight">
+  <img src="assets/yosemite.jpg" alt="Peter at a Yosemite overlook with binoculars" loading="lazy" width="1100" height="733" decoding="async">
+  <figcaption>off-hours: surf, national parks, and building things that probably didn't need to exist but do now.</figcaption>
+</figure>
 
 <section id="about" class="wrap">
   <h2>About</h2>
-  <div class="about" style="margin-top:22px">
-    <img src="assets/yosemite.jpg" alt="Peter at Yosemite">
+  <div class="about">
+    <img src="assets/peter.jpg" alt="Peter Skotte" loading="lazy" width="660" height="1173" decoding="async">
     <div>
-      <p>I'm a Senior Business Intelligence Analyst who ended up somewhere more interesting: the seam between
-      analytics and applied AI. Seven years across restaurant operations at national scale, regulated consumer
-      finance, distribution, and e-commerce taught me the same lesson four ways — an analysis only matters if
-      it changes a decision, and a system only matters if it survives contact with real users.</p>
-      <p>So I build for survival: metrics with governed definitions, pipelines that heal themselves, and AI
-      that's grounded in models rather than vibes. On nights and weekends I ship commercial automation agents,
-      which keeps me honest — paying customers are the strictest code review there is.</p>
-      <p>Off-hours: surfing, national parks, and building things that probably didn't need to exist but do now.</p>
+      <p>I'm a Senior Business Intelligence Analyst who ended up somewhere more interesting: the seam
+      between analytics and applied AI. Seven years across restaurant operations at national scale,
+      regulated consumer finance, distribution, and e-commerce taught me the same lesson four ways:
+      an analysis only matters if it changes a decision, and a system only matters if it survives
+      contact with real users.</p>
+      <p>So I build for survival: metrics with governed definitions, pipelines that heal themselves,
+      and AI that answers from models rather than memory. On nights and weekends I ship commercial
+      automation agents, which keeps me honest. Paying customers are the strictest code review
+      there is.</p>
     </div>
   </div>
 </section>
 
 <section id="contact" class="wrap">
   <h2>Contact</h2>
-  <p class="sub">Open to senior analytics & applied-AI IC roles.</p>
+  <p class="sub">Open to senior analytics and applied-AI IC roles.</p>
   <div class="cta">
     <a class="primary" href="mailto:peterskotte@protonmail.com">peterskotte@protonmail.com</a>
     <a class="ghost" href="https://www.linkedin.com/in/peterskotte1" target="_blank" rel="noopener">LinkedIn</a>
     <a class="ghost" href="https://github.com/IncrediblyHungie" target="_blank" rel="noopener">GitHub</a>
-    <a class="ghost" href="https://apify.com/velvety_bedbug" target="_blank" rel="noopener">Apify Store</a>
   </div>
 </section>
 
+</main>
 <footer><div class="wrap">
-  <div>© 2026 Peter Skotte · skotteanalytics.com</div>
-  <div>Built with Claude Code — naturally.</div>
+  <div>© 2026 Peter Skotte</div>
+  <div>skotteanalytics.com</div>
 </div></footer>
 
+<script>
+// live status strip: clocks always work; weather is best-effort (open-meteo, no key)
+(function(){
+  function tick(){
+    var f=function(tz){return new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit',timeZone:tz}).format(new Date());};
+    try{
+      document.getElementById('sd-time').textContent=f('America/Los_Angeles');
+      document.getElementById('mia-time').textContent=f('America/New_York');
+    }catch(e){}
+  }
+  tick(); setInterval(tick,30000);
+  var icons={0:'☀️',1:'🌤',2:'⛅',3:'☁️',45:'🌫',48:'🌫',51:'🌦',53:'🌦',55:'🌧',61:'🌧',63:'🌧',65:'🌧',80:'🌦',81:'🌧',82:'⛈',95:'⛈',96:'⛈',99:'⛈'};
+  function wx(lat,lon,el){
+    fetch('https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lon+'&current_weather=true&temperature_unit=fahrenheit')
+      .then(function(r){return r.json();})
+      .then(function(d){var c=d.current_weather;
+        document.getElementById(el).textContent=' · '+Math.round(c.temperature)+'°F '+(icons[c.weathercode]||'');})
+      .catch(function(){});
+  }
+  wx(32.72,-117.16,'sd-wx'); wx(25.76,-80.19,'mia-wx');
+})();
+</script>
 </body>
 </html>
