@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peter Skotte — Analytics & Applied AI</title>
+<meta name="description" content="Peter Skotte — Senior Business Intelligence Analyst. Production GenAI, agentic analytics pipelines, and the data models underneath them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f14; --panel:#111823; --panel2:#0e141d; --line:#1d2a3a;
+  --text:#e8eef6; --muted:#8fa3b8; --accent:#4cc38a; --accent2:#5aa9ff;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+/* nav */
+nav{position:sticky;top:0;background:rgba(11,15,20,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-weight:800;letter-spacing:-.02em}
+.brand span{color:var(--accent)}
+nav .links a{color:var(--muted);margin-left:22px;font-size:.92rem;font-weight:500}
+nav .links a:hover{color:var(--text);text-decoration:none}
+/* hero */
+.hero{padding:84px 0 60px;display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center}
+.kicker{font-family:var(--mono);color:var(--accent);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.12;letter-spacing:-.03em;font-weight:800;margin-bottom:18px}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{color:var(--muted);font-size:1.12rem;max-width:34em;margin-bottom:26px}
+.cta a{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:600;font-size:.95rem;margin-right:12px;margin-bottom:8px}
+.cta .primary{background:var(--accent);color:#04110a}
+.cta .primary:hover{filter:brightness(1.1);text-decoration:none}
+.cta .ghost{border:1px solid var(--line);color:var(--text)}
+.cta .ghost:hover{border-color:var(--accent2);text-decoration:none}
+.portrait{justify-self:end}
+.portrait img{width:100%;max-width:330px;border-radius:16px;border:1px solid var(--line);display:block}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:26px 0 8px;border-top:1px solid var(--line)}
+.stat{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:18px}
+.stat b{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.stat span{color:var(--muted);font-size:.85rem}
+/* sections */
+section{padding:64px 0 8px}
+h2{font-size:1.6rem;letter-spacing:-.02em;font-weight:800;margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:30px;max-width:44em}
+/* project cards */
+.project{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px;margin-bottom:24px}
+.project .tag{font-family:var(--mono);font-size:.75rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.project h3{font-size:1.25rem;margin:8px 0 10px;letter-spacing:-.01em}
+.project p{color:var(--muted);max-width:56em;margin-bottom:12px}
+.project ul{color:var(--muted);margin:0 0 14px 20px}
+.project li{margin-bottom:6px}
+.project .links a{font-weight:600;font-size:.92rem;margin-right:18px}
+.pill{display:inline-block;font-family:var(--mono);font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 10px;margin:2px 6px 2px 0}
+/* diagram */
+.diagram{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0;overflow-x:auto}
+.diagram svg{display:block;min-width:640px;width:100%;height:auto}
+/* skills */
+.skillgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.skill{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:18px}
+.skill h4{font-size:.95rem;margin-bottom:8px;color:var(--accent2)}
+.skill p{color:var(--muted);font-size:.9rem}
+/* about */
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:36px;align-items:center}
+.about img{width:100%;border-radius:14px;border:1px solid var(--line)}
+.about p{color:var(--muted);margin-bottom:12px}
+/* footer */
+footer{border-top:1px solid var(--line);margin-top:70px;padding:34px 0 44px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:.9rem}
+footer a{margin-right:18px}
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:48px}
+  .portrait{justify-self:start;order:-1}
+  .portrait img{max-width:220px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .skillgrid{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">SKOTTE<span>·</span>ANALYTICS</div>
+  <div class="links">
+    <a href="#work">Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header class="hero wrap">
+  <div>
+    <div class="kicker">Senior Business Intelligence Analyst · Applied AI</div>
+    <h1>I build analytics systems that <em>ship</em> — and keep working after I walk away.</h1>
+    <p class="lede">Production GenAI, agentic data pipelines, and the dimensional models underneath them.
+    Currently powering analytics across 7,000+ restaurant locations; previously forecasting demand on
+    5M+ row datasets and cutting fees $400K/yr with ML in regulated consumer finance.</p>
+    <div class="cta">
+      <a class="primary" href="#work">See the work</a>
+      <a class="ghost" href="https://www.linkedin.com/in/peterskotte1" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="ghost" href="mailto:peterskotte@protonmail.com">Email me</a>
+    </div>
+  </div>
+  <div class="portrait"><img src="assets/peter.jpg" alt="Peter Skotte"></div>
+</header>
+
+<div class="wrap stats">
+  <div class="stat"><b>7,000+</b><span>locations served by my analytics portfolio</span></div>
+  <div class="stat"><b>$400K/yr</b><span>fees eliminated by one ML model I shipped</span></div>
+  <div class="stat"><b>40%</b><span>faster incident response via automated anomaly detection</span></div>
+  <div class="stat"><b>6+ months</b><span>of continuous revenue from AI agents I sell</span></div>
+</div>
+
+<section id="work" class="wrap">
+  <h2>Selected Work</h2>
+  <p class="sub">Three systems, three proofs: commercial, production, and open. Everything below is real,
+  running, and mine end to end.</p>
+
+  <div class="project">
+    <div class="tag">Commercial · Live</div>
+    <h3>Paid AI Agents on the Apify Marketplace</h3>
+    <p>I design, build, and operate a fleet of automation agents and scrapers sold as paid products —
+    input UIs, API endpoints, pricing, and maintenance all owned by me. They've generated revenue
+    continuously for 6+ months from real paying users. Built in Python, extensively with Claude Code,
+    version-controlled in Git.</p>
+    <p><b style="color:var(--text)">Why it matters:</b> anyone can claim "I build AI agents."
+    A marketplace with paying customers is the receipt.</p>
+    <div class="links"><a href="https://apify.com/velvety_bedbug" target="_blank" rel="noopener">Browse the live listings →</a></div>
+    <div><span class="pill">Python</span><span class="pill">Anthropic API</span><span class="pill">Claude Code</span><span class="pill">Apify SDK</span><span class="pill">Git</span></div>
+  </div>
+
+  <div class="project">
+    <div class="tag">Production · Architecture</div>
+    <h3>Natural-Language Data Agent over a Semantic Layer</h3>
+    <p>For a 7,000-location restaurant enterprise, I shipped a production GenAI product (LLM sentiment
+    analysis + ML classification over customer-feedback data) and deployed a self-serve natural-language
+    data agent: business operators ask questions in plain English and get answers grounded in a governed
+    semantic model — not a hallucination, and not another static dashboard.</p>
+    <div class="diagram">
+      <svg viewBox="0 0 880 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture: sources to dimensional models to semantic layer to LLM to business user">
+        <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#4cc38a" stroke-width="1.4"/></marker></defs>
+        <g font-family="JetBrains Mono, monospace" font-size="12" fill="#e8eef6" text-anchor="middle">
+          <rect x="10"  y="55" width="140" height="80" rx="10" fill="#0e141d" stroke="#1d2a3a"/>
+          <text x="80" y="88">Raw sources</text><text x="80" y="106" fill="#8fa3b8" font-size="10">feedback · ops · POS</text>
+          <rect x="196" y="55" width="150" height="80" rx="10" fill="#0e141d" stroke="#1d2a3a"/>
+          <text x="271" y="82">Dimensional</text><text x="271" y="98">models</text><text x="271" y="114" fill="#8fa3b8" font-size="10">Snowflake · dbt · contracts</text>
+          <rect x="392" y="55" width="150" height="80" rx="10" fill="#0e141d" stroke="#4cc38a"/>
+          <text x="467" y="82">Semantic layer</text><text x="467" y="100" fill="#8fa3b8" font-size="10">governed metric defs</text><text x="467" y="114" fill="#8fa3b8" font-size="10">= the grounding</text>
+          <rect x="588" y="55" width="130" height="80" rx="10" fill="#0e141d" stroke="#1d2a3a"/>
+          <text x="653" y="88">LLM agent</text><text x="653" y="106" fill="#8fa3b8" font-size="10">answers over metrics</text>
+          <rect x="764" y="55" width="106" height="80" rx="10" fill="#0e141d" stroke="#1d2a3a"/>
+          <text x="817" y="82">Operator</text><text x="817" y="100" fill="#8fa3b8" font-size="10">plain-English</text><text x="817" y="114" fill="#8fa3b8" font-size="10">Q&amp;A</text>
+          <g stroke="#4cc38a" stroke-width="1.4" fill="none">
+            <line x1="150" y1="95" x2="192" y2="95" marker-end="url(#a)"/>
+            <line x1="346" y1="95" x2="388" y2="95" marker-end="url(#a)"/>
+            <line x1="542" y1="95" x2="584" y2="95" marker-end="url(#a)"/>
+            <line x1="718" y1="95" x2="760" y2="95" marker-end="url(#a)"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <p>The design decision that makes it trustworthy: the LLM never free-styles over raw tables. It reasons
+    over a semantic layer whose metric definitions I document and govern — same numbers the executive
+    dashboards use, so an answer by prompt always reconciles with the reported KPI.</p>
+    <div><span class="pill">LLM + ML in production</span><span class="pill">Semantic layer</span><span class="pill">Snowflake · dbt</span><span class="pill">Prompt engineering</span><span class="pill">Data contracts</span></div>
+  </div>
+
+  <div class="project">
+    <div class="tag">Open · Case Study</div>
+    <h3>LLM-as-Judge Orchestration Pipeline</h3>
+    <p>A personal-infrastructure project: a multi-source data pipeline that scrapes 30 heterogeneous
+    sources (Workday, Phenom, Oracle Cloud, Greenhouse, custom APIs), then uses an LLM as a structured
+    judge — every record scored against a versioned rubric with a validated, typed verdict contract —
+    and routes qualified results to alerts.</p>
+    <ul>
+      <li><b style="color:var(--text)">Parallel orchestration:</b> 24 independent lanes on a thread pool, rate-limit-aware per host — benchmarked <b style="color:var(--text)">6.3× faster</b> than sequential (270s → 43s, identical coverage, same-day A/B on live sources)</li>
+      <li><b style="color:var(--text)">Reliability engineering:</b> idempotent state, atomic writes, per-record retry caps with loud give-ups, lockfile with heartbeat, crash-safe resume — a record can be delayed, never silently lost</li>
+      <li><b style="color:var(--text)">LLM rigor:</b> fenced untrusted input (prompt-injection tested), envelope validation, verdict normalization, double-sampling on positive verdicts, every judgment logged to an append-only ledger with the rubric version that produced it</li>
+      <li><b style="color:var(--text)">Airflow-ready:</b> the same topology expressed as an Airflow DAG with dynamic task mapping and pooled concurrency</li>
+    </ul>
+    <div><span class="pill">Python</span><span class="pill">LLM-as-judge</span><span class="pill">ThreadPool / Airflow</span><span class="pill">Idempotency</span><span class="pill">Observability</span></div>
+  </div>
+</section>
+
+<section id="skills" class="wrap">
+  <h2>How I Work</h2>
+  <p class="sub">The stack under the projects.</p>
+  <div class="skillgrid">
+    <div class="skill"><h4>Data Modeling & SQL</h4>
+      <p>Dimensional models in Snowflake + dbt with defined grain and data contracts; window-function and
+      CTE-heavy transformations; semantic/metrics layers (Lightdash, Microsoft Fabric); source-of-truth
+      documentation teams actually align on.</p></div>
+    <div class="skill"><h4>Applied AI</h4>
+      <p>Production GenAI (LLM + ML), custom agents on the Anthropic API, prompt engineering, natural-language
+      data interfaces, AI-orchestrated automation. Certified: Microsoft Fabric Analytics Engineer (DP-600).</p></div>
+    <div class="skill"><h4>Analytics that Decide</h4>
+      <p>Operational & workforce KPIs vs formal OKRs, demand forecasting (5M+ rows), anomaly detection with
+      root-cause routing, ML with tracked dollar impact, executive storytelling in Tableau / Power BI.</p></div>
+  </div>
+</section>
+
+<section id="about" class="wrap">
+  <h2>About</h2>
+  <div class="about" style="margin-top:22px">
+    <img src="assets/yosemite.jpg" alt="Peter at Yosemite">
+    <div>
+      <p>I'm a Senior Business Intelligence Analyst who ended up somewhere more interesting: the seam between
+      analytics and applied AI. Seven years across restaurant operations at national scale, regulated consumer
+      finance, distribution, and e-commerce taught me the same lesson four ways — an analysis only matters if
+      it changes a decision, and a system only matters if it survives contact with real users.</p>
+      <p>So I build for survival: metrics with governed definitions, pipelines that heal themselves, and AI
+      that's grounded in models rather than vibes. On nights and weekends I ship commercial automation agents,
+      which keeps me honest — paying customers are the strictest code review there is.</p>
+      <p>Off-hours: surfing, national parks, and building things that probably didn't need to exist but do now.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="wrap">
+  <h2>Contact</h2>
+  <p class="sub">Open to senior analytics & applied-AI IC roles.</p>
+  <div class="cta">
+    <a class="primary" href="mailto:peterskotte@protonmail.com">peterskotte@protonmail.com</a>
+    <a class="ghost" href="https://www.linkedin.com/in/peterskotte1" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="ghost" href="https://github.com/IncrediblyHungie" target="_blank" rel="noopener">GitHub</a>
+    <a class="ghost" href="https://apify.com/velvety_bedbug" target="_blank" rel="noopener">Apify Store</a>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div>© 2026 Peter Skotte · skotteanalytics.com</div>
+  <div>Built with Claude Code — naturally.</div>
+</div></footer>
+
+</body>
+</html>
