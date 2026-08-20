@@ -257,13 +257,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
     self-serve natural-language data agent: operators ask questions in plain English and
     get answers grounded in a governed semantic model: business concepts translated into structures an LLM can reason over.</p>
     <div class="figure">
-      <svg class="fig-h" viewBox="0 0 880 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pipeline: raw sources, then dimensional models in Snowflake and dbt, then a governed semantic layer, then the LLM agent, then the operator asking questions in plain English">
+      <svg class="fig-h" viewBox="0 0 880 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pipeline: raw sources, then the data models, then a governed semantic layer, then the LLM agent, then the operator asking questions in plain English">
         <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#1E6B4E" stroke-width="1.5"/></marker></defs>
         <g font-family="IBM Plex Mono,monospace" font-size="13" fill="#16211B" text-anchor="middle">
           <rect x="8" y="34" width="150" height="82" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/>
           <text x="83" y="68">raw sources</text><text x="83" y="88" fill="#4E5F57" font-size="11">feedback · ops · POS</text>
           <rect x="196" y="34" width="160" height="82" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/>
-          <text x="276" y="62">dimensional</text><text x="276" y="80">models</text><text x="276" y="100" fill="#4E5F57" font-size="11">Snowflake · dbt</text>
+          <text x="276" y="62">data</text><text x="276" y="80">models</text><text x="276" y="100" fill="#4E5F57" font-size="11">defined grain</text>
           <rect x="394" y="34" width="170" height="82" rx="8" fill="#FDFEFD" stroke="#1E6B4E" stroke-width="1.5"/>
           <text x="479" y="62">semantic layer</text><text x="479" y="82" fill="#1E6B4E" font-size="11">governed metric defs</text><text x="479" y="100" fill="#4E5F57" font-size="11">= the grounding</text>
           <rect x="602" y="34" width="130" height="82" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/>
@@ -282,7 +282,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
         <defs><marker id="av" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#1E6B4E" stroke-width="1.5"/></marker></defs>
         <g font-family="IBM Plex Mono,monospace" font-size="13" fill="#16211B" text-anchor="middle">
           <rect x="60" y="6" width="200" height="58" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/><text x="160" y="32">raw sources</text><text x="160" y="50" fill="#4E5F57" font-size="11">feedback · ops · POS</text>
-          <rect x="60" y="98" width="200" height="58" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/><text x="160" y="124">dimensional models</text><text x="160" y="142" fill="#4E5F57" font-size="11">Snowflake · dbt</text>
+          <rect x="60" y="98" width="200" height="58" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/><text x="160" y="124">data models</text><text x="160" y="142" fill="#4E5F57" font-size="11">defined grain</text>
           <rect x="60" y="190" width="200" height="58" rx="8" fill="#FDFEFD" stroke="#1E6B4E" stroke-width="1.5"/><text x="160" y="216">semantic layer</text><text x="160" y="234" fill="#1E6B4E" font-size="11">the grounding</text>
           <rect x="60" y="282" width="200" height="58" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/><text x="160" y="308">LLM agent</text><text x="160" y="326" fill="#4E5F57" font-size="11">answers over metrics</text>
           <rect x="60" y="374" width="200" height="50" rx="8" fill="#FDFEFD" stroke="#D9E1DB"/><text x="160" y="404">operator Q&amp;A</text>
@@ -350,7 +350,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
   <p class="sub">What the projects run on.</p>
   <div class="skillgrid">
     <div class="skill"><h3>data modeling & sql</h3>
-      <p>Dimensional models in Snowflake + dbt with defined grain and data contracts; window-function
+      <p>Data models with defined grain and data contracts; window-function
       and CTE-heavy transformations; semantic and metrics layers (Lightdash, Microsoft Fabric);
       source-of-truth documentation teams actually align on.</p></div>
     <div class="skill"><h3>applied ai</h3>
